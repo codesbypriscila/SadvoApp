@@ -1,0 +1,121 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "SADVO.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/SADVO.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SADVO.Domain.dll": {}
+        }
+      },
+      "SADVO.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/SADVO.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SADVO.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SADVO.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SADVO.Domain/SADVO.Domain.csproj",
+      "msbuildProject": "../SADVO.Domain/SADVO.Domain.csproj"
+    },
+    "SADVO.Shared/1.0.0": {
+      "type": "project",
+      "path": "../SADVO.Shared/SADVO.Shared.csproj",
+      "msbuildProject": "../SADVO.Shared/SADVO.Shared.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "SADVO.Domain >= 1.0.0",
+      "SADVO.Shared >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\prisc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj",
+      "projectName": "SADVO.Application",
+      "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj",
+      "packagesPath": "C:\\Users\\prisc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\prisc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {
+            "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj": {
+              "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj"
+            },
+            "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj": {
+              "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

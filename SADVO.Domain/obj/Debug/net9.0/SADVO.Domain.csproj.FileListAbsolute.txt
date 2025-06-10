@@ -1,0 +1,11 @@
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\bin\Debug\net9.0\SADVO.Domain.deps.json
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\bin\Debug\net9.0\SADVO.Domain.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\bin\Debug\net9.0\SADVO.Domain.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\SADVO.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\SADVO.Domain.AssemblyInfoInputs.cache
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\SADVO.Domain.AssemblyInfo.cs
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\SADVO.Domain.csproj.CoreCompileInputs.cache
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\SADVO.Domain.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\refint\SADVO.Domain.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\SADVO.Domain.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Domain\obj\Debug\net9.0\ref\SADVO.Domain.dll

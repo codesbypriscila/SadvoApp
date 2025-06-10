@@ -1,0 +1,294 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Infrastructure\\SADVO.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj",
+        "projectName": "SADVO.Application",
+        "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj",
+        "packagesPath": "C:\\Users\\prisc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\prisc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj": {
+                "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj"
+              },
+              "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj": {
+                "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj",
+        "projectName": "SADVO.Domain",
+        "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj",
+        "packagesPath": "C:\\Users\\prisc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\prisc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Infrastructure\\SADVO.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Infrastructure\\SADVO.Infrastructure.csproj",
+        "projectName": "SADVO.Infrastructure",
+        "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Infrastructure\\SADVO.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\prisc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\prisc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj": {
+                "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Application\\SADVO.Application.csproj"
+              },
+              "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj": {
+                "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj",
+        "projectName": "SADVO.Shared",
+        "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj",
+        "packagesPath": "C:\\Users\\prisc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\prisc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

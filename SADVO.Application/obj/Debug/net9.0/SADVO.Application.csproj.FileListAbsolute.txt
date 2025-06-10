@@ -1,0 +1,17 @@
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Application.deps.json
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Application.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Application.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Domain.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Shared.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Domain.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Shared.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.csproj.AssemblyReference.cache
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.AssemblyInfoInputs.cache
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.AssemblyInfo.cs
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.csproj.CoreCompileInputs.cache
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Ap.E52D6B30.Up2Date
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\refint\SADVO.Application.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\ref\SADVO.Application.dll
