@@ -283,6 +283,11 @@ namespace SADVO.Infrastructure.Migrations
                     { 2, "Dirigente" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "Id", "Activo", "Apellido", "Email", "Nombre", "PasswordHash", "RolId", "Username" },
+                values: new object[] { 1, true, "Perez", "priscilaperezherrera@gmail.com", "Priscila", "03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4", 1, "Priscila" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AlianzasPoliticas_PartidoReceptorId",
                 table: "AlianzasPoliticas",

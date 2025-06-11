@@ -15,3 +15,4 @@ C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\refint\SADVO.Application.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.pdb
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\ref\SADVO.Application.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\obj\Debug\net9.0\SADVO.Application.sourcelink.json

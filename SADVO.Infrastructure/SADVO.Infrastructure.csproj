@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SADVO.Application\SADVO.Application.csproj" />
     <ProjectReference Include="..\SADVO.Domain\SADVO.Domain.csproj" />
+    <ProjectReference Include="..\SADVO.Shared\SADVO.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

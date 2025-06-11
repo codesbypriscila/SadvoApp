@@ -19,3 +19,4 @@ C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Infrastructu
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Infrastructure\obj\Debug\net9.0\SADVO.Infrastructure.pdb
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Infrastructure\obj\Debug\net9.0\SADVO.Infrastructure.genruntimeconfig.cache
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Infrastructure\obj\Debug\net9.0\ref\SADVO.Infrastructure.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Infrastructure\obj\Debug\net9.0\SADVO.Infrastructure.sourcelink.json

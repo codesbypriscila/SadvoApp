@@ -2,8 +2,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SADVO.Application\SADVO.Application.csproj" />
-    <ProjectReference Include="..\SADVO.Infrastructure\SADVO.Infrastructure.csproj" />
+    <ProjectReference Include="..\SADVO.Domain\SADVO.Domain.csproj" />
     <ProjectReference Include="..\SADVO.Shared\SADVO.Shared.csproj" />
+    <ProjectReference Include="..\SADVO.Infrastructure\SADVO.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -11,6 +12,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SADVO.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44f1c8eed96225630b65e692f38ed146ca4f9b07")]
 [assembly: System.Reflection.AssemblyProductAttribute("SADVO.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SADVO.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

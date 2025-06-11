@@ -3,8 +3,9 @@ using SADVO.Domain.Entities;
 using SADVO.Domain.Entities.Administrador;
 using SADVO.Domain.Entities.Dirigente;
 using SADVO.Domain.Entities.Elector;
+using SADVO.Shared.Utils;
 
-namespace SADVO.Infraestructure.ApplicationDbContext
+namespace SADVO.Infrastructure.AppDbContext
 {
     public class ApplicationDbContext : DbContext
     {
@@ -26,6 +27,23 @@ namespace SADVO.Infraestructure.ApplicationDbContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //NOTA PARA EL PROFESOR: Antes de migrar la base de datos, cambie los datos del administrador 
+            //por los de ustedd
+
+            string passwordHash = PasswordHasher.Hash("1234");
+
+            modelBuilder.Entity<Usuario>().HasData(new Usuario
+            {
+                Id = 1,
+                Nombre = "Priscila",
+                Apellido = "Perez",
+                Email = "priscilaperezherrera@gmail.com",
+                Username = "Priscila",
+                PasswordHash = passwordHash,
+                Activo = true,
+                RolId = 1
+            });
 
             modelBuilder.Entity<Rol>().HasData(
             new Rol { Id = 1, Nombre = "Administrador" },

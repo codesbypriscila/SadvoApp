@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SADVO.Infraestructure.ApplicationDbContext;
+using SADVO.Infrastructure.AppDbContext;
 
 #nullable disable
 
 namespace SADVO.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250610165004_InitialCreate")]
+    [Migration("20250611224529_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace SADVO.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.5")
+                .HasAnnotation("ProductVersion", "9.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -207,6 +207,19 @@ namespace SADVO.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Activo = true,
+                            Apellido = "Perez",
+                            Email = "priscilaperezherrera@gmail.com",
+                            Nombre = "Priscila",
+                            PasswordHash = "03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4",
+                            RolId = 1,
+                            Username = "Priscila"
+                        });
                 });
 
             modelBuilder.Entity("SADVO.Domain.Entities.Dirigente.AlianzaPolitica", b =>

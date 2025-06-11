@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SADVO.Infraestructure.ApplicationDbContext;
+using SADVO.Domain.Interfaces;
+using SADVO.Infrastructure.AppDbContext;
+using SADVO.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 var app = builder.Build();
 

@@ -4726,7 +4726,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.5",
       "SADVO.Application >= 1.0.0",
-      "SADVO.Domain >= 1.0.0"
+      "SADVO.Domain >= 1.0.0",
+      "SADVO.Shared >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4766,6 +4767,9 @@
             },
             "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj": {
               "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Domain\\SADVO.Domain.csproj"
+            },
+            "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj": {
+              "projectPath": "C:\\Users\\prisc\\OneDrive\\Desktop\\C-5\\Programacion III\\SadvoApp\\SADVO.Shared\\SADVO.Shared.csproj"
             }
           }
         }

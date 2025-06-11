@@ -11,7 +11,8 @@
           "Microsoft.EntityFrameworkCore.Design": "9.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.5",
           "SADVO.Application": "1.0.0",
-          "SADVO.Domain": "1.0.0"
+          "SADVO.Domain": "1.0.0",
+          "SADVO.Shared": "1.0.0"
         },
         "runtime": {
           "SADVO.Infrastructure.dll": {}
