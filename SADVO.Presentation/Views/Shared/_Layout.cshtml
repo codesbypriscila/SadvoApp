@@ -54,13 +54,31 @@
                 </div>
 
                 <nav class="flex items-center space-x-4">
-                    <a href="/Login" 
-                       class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary-600 bg-primary-100 hover:bg-primary-100 hover:text-primary-700 transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                        </svg>
-                        Iniciar Sesión
-                    </a>
+                    @* Mostrar botón de Iniciar Sesión solo en la página Home *@
+                    @if (ViewContext.RouteData.Values["controller"]!.ToString() == "Home" && 
+                         ViewContext.RouteData.Values["action"]!.ToString() == "Index")
+                    {
+                        <a href="/Login" 
+                           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary-600 bg-primary-100 hover:bg-primary-200 hover:text-primary-700 transition-colors duration-200">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                            </svg>
+                            Iniciar Sesión
+                        </a>
+                    }
+
+                    @* Mostrar botón de Cerrar Sesión solo en el panel de administración *@
+                    @if (ViewContext.RouteData.Values["controller"]!.ToString() == "Administrador" || 
+                         ViewContext.RouteData.Values["controller"]!.ToString() == "Admin")
+                    {
+                        <a href="@Url.Action("Logout", "Login")" 
+                           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-600 bg-red-100 hover:bg-red-200 hover:text-red-700 transition-colors duration-200">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                            </svg>
+                            Cerrar Sesión
+                        </a>
+                    }
                 </nav>
             </div>
         </div>
@@ -69,7 +87,6 @@
     <main class="flex-1">
         @RenderBody()
     </main>
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

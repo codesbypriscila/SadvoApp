@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using SADVO.Application.Interfaces;
+using SADVO.Application.Services;
 using SADVO.Domain.Interfaces;
 using SADVO.Infrastructure.AppDbContext;
 using SADVO.Infrastructure.Repositories;
@@ -12,6 +14,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 
 var app = builder.Build();
 

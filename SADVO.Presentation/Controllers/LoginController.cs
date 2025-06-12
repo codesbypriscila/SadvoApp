@@ -12,12 +12,21 @@ public class LoginController : Controller
     }
 
     [HttpGet]
+    public IActionResult Index()
+    {
+        return RedirectToAction("Login");
+    }
+
+    [HttpGet]
     public IActionResult Login() => View();
 
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        if (!ModelState.IsValid) return View(model);
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
 
         var usuario = await _loginService.LoginAsync(model);
         if (usuario == null)
@@ -32,5 +41,12 @@ public class LoginController : Controller
             return RedirectToAction("Index", "Dirigente");
 
         return RedirectToAction("Login");
+    }
+
+    [HttpGet]
+    public ActionResult Logout()
+    {
+
+        return RedirectToAction("Index", "Home");
     }
 }
