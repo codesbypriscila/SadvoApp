@@ -1,51 +1,51 @@
 using Microsoft.EntityFrameworkCore;
-using SADVO.Domain.Interfaces;
 using System.Linq.Expressions;
+using SADVO.Domain.Interfaces;
 
 namespace SADVO.Infrastructure.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : class
     {
         protected readonly DbContext _context;
-        protected readonly DbSet<T> _dbSet;
+        protected readonly DbSet<Entity> _dbSet;
 
-        public Repository(DbContext context)
+        public GenericRepository(DbContext context)
         {
             _context = context;
-            _dbSet = context.Set<T>();
+            _dbSet = context.Set<Entity>();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<Entity?> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<Entity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<Entity>> FindAsync(Expression<Func<Entity, bool>> predicate)
         {
             return await _dbSet.Where(predicate).ToListAsync();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(Entity entity)
         {
             await _dbSet.AddAsync(entity);
         }
 
-        public void Update(T entity)
+        public void Update(Entity entity)
         {
             _dbSet.Update(entity);
         }
 
-        public void Remove(T entity)
+        public void Remove(Entity entity)
         {
             _dbSet.Remove(entity);
         }
 
-        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+        public async Task<bool> ExistsAsync(Expression<Func<Entity, bool>> predicate)
         {
             return await _dbSet.AnyAsync(predicate);
         }

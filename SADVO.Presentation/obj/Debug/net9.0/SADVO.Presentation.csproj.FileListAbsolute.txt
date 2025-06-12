@@ -233,3 +233,4 @@ C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Presentation
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Presentation\obj\Debug\net9.0\SADVO.Presentation.sourcelink.json
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Presentation\bin\Debug\net9.0\System.Formats.Asn1.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Presentation\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Presentation\bin\Debug\net9.0\Newtonsoft.Json.dll

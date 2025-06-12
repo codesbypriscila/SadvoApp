@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SADVO.Shared.Utils
+namespace SADVO.Application.Utils
 {
     public static class PasswordHasher
     {

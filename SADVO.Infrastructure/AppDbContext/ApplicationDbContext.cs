@@ -3,7 +3,7 @@ using SADVO.Domain.Entities;
 using SADVO.Domain.Entities.Administrador;
 using SADVO.Domain.Entities.Dirigente;
 using SADVO.Domain.Entities.Elector;
-using SADVO.Shared.Utils;
+using SADVO.Application.Utils;
 
 namespace SADVO.Infrastructure.AppDbContext
 {

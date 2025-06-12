@@ -1,9 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
+using SADVO.Application.Dtos;
+using SADVO.Application.Utils;
 
 public class AdminController : Controller
 {
     public IActionResult Index()
     {
-        return View();
+        var usuario = HttpContext.Session.Get<UsuarioDto>("Usuario");
+
+        if (usuario == null)
+        {
+            return RedirectToAction("Login", "Login");
+        }
+
+        return View(usuario); 
     }
 }

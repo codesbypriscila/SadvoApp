@@ -7,5 +7,4 @@ namespace SADVO.Application.Interfaces
     {
         Task<UsuarioDto?> LoginAsync(LoginViewModel loginViewModel);
     }
-
 }

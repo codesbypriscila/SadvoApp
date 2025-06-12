@@ -2,7 +2,7 @@ using SADVO.Application.Dtos;
 using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
 using SADVO.Domain.Interfaces;
-using SADVO.Shared.Utils;
+using SADVO.Application.Utils;
 
 namespace SADVO.Application.Services
 {

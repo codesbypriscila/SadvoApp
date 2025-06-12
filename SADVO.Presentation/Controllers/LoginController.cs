@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
+using SADVO.Application.Utils;
 
 public class LoginController : Controller
 {
@@ -18,7 +19,10 @@ public class LoginController : Controller
     }
 
     [HttpGet]
-    public IActionResult Login() => View();
+    public IActionResult Login()
+    {
+        return View(new LoginViewModel());
+    }
 
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
@@ -31,22 +35,24 @@ public class LoginController : Controller
         var usuario = await _loginService.LoginAsync(model);
         if (usuario == null)
         {
-            ModelState.AddModelError("", "Credenciales inválidas o usuario inactivo.");
+            model.ErrorLogin = "Credenciales inválidas o usuario inactivo.";
             return View(model);
         }
 
-        if (usuario.Rol == "Administrador")
-            return RedirectToAction("Index", "Admin");
-        else if (usuario.Rol == "Dirigente")
-            return RedirectToAction("Index", "Dirigente");
+        HttpContext.Session.Set("Usuario", usuario);
 
-        return RedirectToAction("Login");
+        return usuario.Rol switch
+        {
+            "Administrador" => RedirectToAction("Index", "Admin"),
+            "Dirigente" => RedirectToAction("Index", "Dirigente"),
+            _ => RedirectToAction("Login")
+        };
     }
 
     [HttpGet]
     public ActionResult Logout()
     {
-
+        HttpContext.Session.Clear();
         return RedirectToAction("Index", "Home");
     }
 }
