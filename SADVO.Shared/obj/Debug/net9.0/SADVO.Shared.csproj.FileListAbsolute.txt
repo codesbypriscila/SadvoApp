@@ -5,8 +5,8 @@ C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\D
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.AssemblyInfoInputs.cache
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.AssemblyInfo.cs
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.csproj.CoreCompileInputs.cache
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.sourcelink.json
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\refint\SADVO.Shared.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.pdb
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\ref\SADVO.Shared.dll
-C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.sourcelink.json

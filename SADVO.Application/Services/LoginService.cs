@@ -3,6 +3,7 @@ using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
 using SADVO.Domain.Interfaces;
 using SADVO.Application.Utils;
+using AutoMapper;
 
 namespace SADVO.Application.Services
 {
@@ -10,10 +11,12 @@ namespace SADVO.Application.Services
     public class LoginService : ILoginService
     {
         private readonly ILoginRepository _loginRepository;
+        private readonly IMapper _mapper;
 
-        public LoginService(ILoginRepository loginRepository)
+        public LoginService(ILoginRepository loginRepository, IMapper mapper)
         {
             _loginRepository = loginRepository;
+            _mapper = mapper;
         }
 
         public async Task<UsuarioDto?> LoginAsync(LoginViewModel loginViewModel)
@@ -27,13 +30,7 @@ namespace SADVO.Application.Services
             if (user.PasswordHash != hashedInput)
                 return null;
 
-            return new UsuarioDto
-            {
-                Nombre = user.Nombre,
-                Apellido = user.Apellido,
-                Email = user.Email,
-                Rol = user.Rol.Nombre
-            };
+            return _mapper.Map<UsuarioDto>(user);
         }
     }
 

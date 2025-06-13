@@ -1,0 +1,60 @@
+@model SADVO.Web.ViewModels.CuidadanoViewModel
+
+@{
+    ViewData["Title"] = "Editar Ciudadano";
+}
+
+<div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Editar Ciudadano</h2>
+
+    <form asp-action="Edit" method="post" class="space-y-5">
+        <input type="hidden" asp-for="Id" />
+
+        <div>
+            <label asp-for="Nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+            <input asp-for="Nombre"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" />
+            <span asp-validation-for="Nombre" class="text-red-500 text-sm"></span>
+        </div>
+
+        <div>
+            <label asp-for="Apellido" class="block text-sm font-medium text-gray-700">Apellido</label>
+            <input asp-for="Apellido"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" />
+            <span asp-validation-for="Apellido" class="text-red-500 text-sm"></span>
+        </div>
+
+        <div>
+            <label asp-for="Email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input asp-for="Email" type="email"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" />
+            <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+        </div>
+
+        <div>
+            <label asp-for="Cedula" class="block text-sm font-medium text-gray-700">Cédula</label>
+            <input asp-for="Cedula"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" />
+            <p class="text-xs text-gray-500 mt-1">Formato: XXX-XXXXXXX-X</p>
+            <span asp-validation-for="Cedula" class="text-red-500 text-sm"></span>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <input asp-for="Activo" type="checkbox"
+                class="h-5 w-5 text-green-600 focus:ring-green-500 border-gray-300 rounded" />
+            <label asp-for="Activo" class="text-sm font-medium text-gray-700">Activo</label>
+            <span asp-validation-for="Activo" class="text-red-500 text-sm ml-2"></span>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <a asp-action="Index" class="px-5 py-2 bg-gray-200 rounded-md hover:bg-gray-300">Cancelar</a>
+            <button type="submit" class="px-5 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">Crear</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

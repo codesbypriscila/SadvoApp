@@ -1,15 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using SADVO.Domain.Interfaces;
+using SADVO.Infrastructure.AppDbContext;
 
 namespace SADVO.Infrastructure.Repositories
 {
     public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : class
     {
-        protected readonly DbContext _context;
+        protected readonly ApplicationDbContext _context;
         protected readonly DbSet<Entity> _dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(ApplicationDbContext context)
         {
             _context = context;
             _dbSet = context.Set<Entity>();
@@ -33,16 +34,19 @@ namespace SADVO.Infrastructure.Repositories
         public async Task AddAsync(Entity entity)
         {
             await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
         public void Update(Entity entity)
         {
             _dbSet.Update(entity);
+            _context.SaveChanges();
         }
 
         public void Remove(Entity entity)
         {
             _dbSet.Remove(entity);
+            _context.SaveChanges();
         }
 
         public async Task<bool> ExistsAsync(Expression<Func<Entity, bool>> predicate)

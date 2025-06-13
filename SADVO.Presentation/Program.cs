@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SADVO.Application.Interfaces;
+using SADVO.Application.Mappings;
 using SADVO.Application.Services;
 using SADVO.Domain.Interfaces;
 using SADVO.Infrastructure.AppDbContext;
@@ -18,6 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<ICiudadanoService, CiudadanoService>();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 //sesion
 builder.Services.AddSession(opt =>
