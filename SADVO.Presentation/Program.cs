@@ -20,6 +20,9 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<ICiudadanoService, CiudadanoService>();
+builder.Services.AddScoped<IEleccionService, EleccionService>();
+builder.Services.AddScoped<IPuestoElectivoService, PuestoElectivoService>();
+
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 

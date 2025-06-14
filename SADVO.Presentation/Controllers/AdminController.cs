@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using SADVO.Application.Dtos;
 using SADVO.Application.Utils;
 
+namespace SADVO.Presentation.Controllers;
+
 public class AdminController : Controller
 {
     public IActionResult Index()
@@ -13,6 +15,6 @@ public class AdminController : Controller
             return RedirectToAction("Login", "Login");
         }
 
-        return View(usuario); 
+        return View(usuario);
     }
 }

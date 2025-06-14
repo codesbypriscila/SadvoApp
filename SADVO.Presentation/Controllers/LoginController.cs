@@ -3,6 +3,8 @@ using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
 using SADVO.Application.Utils;
 
+namespace SADVO.Presentation.Controllers;
+
 public class LoginController : Controller
 {
     private readonly ILoginService _loginService;

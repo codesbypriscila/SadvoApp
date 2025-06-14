@@ -12,8 +12,9 @@ namespace SADVO.Application.Mappings
             CreateMap<Usuario, UsuarioDto>()
                 .ForMember(dest => dest.Rol, opt => opt.MapFrom(src => src.Rol.Nombre))
                 .ReverseMap();
-                
+
             CreateMap<Ciudadano, CuidadanoDto>().ReverseMap();
+            CreateMap<PuestoElectivo, PuestoElectivoDto>().ReverseMap();
         }
     }
 }
