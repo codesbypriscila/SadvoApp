@@ -38,7 +38,8 @@ namespace SADVO.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Activa = table.Column<bool>(type: "bit", nullable: false)
+                    Activa = table.Column<bool>(type: "bit", nullable: false),
+                    Finalizada = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

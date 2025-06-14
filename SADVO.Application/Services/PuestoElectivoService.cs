@@ -39,7 +39,7 @@ namespace SADVO.Application.Services
         public Task UpdateAsync(PuestoElectivoDto dto)
         {
             var entity = _mapper.Map<PuestoElectivo>(dto);
-            _repository.Update(entity);
+            _repository.UpdateAsync(entity);
             return Task.CompletedTask;
         }
 
@@ -49,7 +49,7 @@ namespace SADVO.Application.Services
             if (entity is not null)
             {
                 entity.Activo = false;
-                _repository.Update(entity);
+                _repository.UpdateAsync(entity);
             }
         }
 
@@ -59,7 +59,7 @@ namespace SADVO.Application.Services
             if (entity is not null)
             {
                 entity.Activo = true;
-                _repository.Update(entity);
+                _repository.UpdateAsync(entity);
             }
         }
     }

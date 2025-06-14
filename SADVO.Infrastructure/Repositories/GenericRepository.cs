@@ -37,13 +37,13 @@ namespace SADVO.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public void Update(Entity entity)
+        public void UpdateAsync(Entity entity)
         {
             _dbSet.Update(entity);
             _context.SaveChanges();
         }
 
-        public void Remove(Entity entity)
+        public void RemoveAsync(Entity entity)
         {
             _dbSet.Remove(entity);
             _context.SaveChanges();

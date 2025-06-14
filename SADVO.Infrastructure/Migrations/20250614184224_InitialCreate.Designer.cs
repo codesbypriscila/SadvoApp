@@ -12,7 +12,7 @@ using SADVO.Infrastructure.AppDbContext;
 namespace SADVO.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250611224529_InitialCreate")]
+    [Migration("20250614184224_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -97,6 +97,9 @@ namespace SADVO.Infrastructure.Migrations
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Finalizada")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

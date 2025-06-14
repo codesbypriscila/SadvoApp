@@ -9,6 +9,7 @@ namespace SADVO.Domain.Entities.Administrador
         public string Nombre { get; set; } = null!;
         public DateTime Fecha { get; set; }
         public bool Activa { get; set; }
+        public bool Finalizada { get; set; } = false;
 
         public ICollection<Voto> Votos { get; set; } = new List<Voto>();
         public ICollection<CandidatoPuesto> Candidatos { get; set; } = new List<CandidatoPuesto>();

@@ -95,6 +95,9 @@ namespace SADVO.Infrastructure.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Finalizada")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

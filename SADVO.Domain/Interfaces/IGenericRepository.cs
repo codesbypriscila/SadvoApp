@@ -8,8 +8,8 @@ namespace SADVO.Domain.Interfaces
         Task<IEnumerable<Entity>> GetAllAsync();
         Task<IEnumerable<Entity>> FindAsync(Expression<Func<Entity, bool>> predicate);
         Task AddAsync(Entity entity);
-        void Update(Entity entity);
-        void Remove(Entity entity);
+        void UpdateAsync(Entity entity);
+        void RemoveAsync(Entity entity);
         Task<bool> ExistsAsync(Expression<Func<Entity, bool>> predicate);
     }
 }

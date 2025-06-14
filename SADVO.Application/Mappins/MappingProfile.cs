@@ -1,6 +1,5 @@
 using AutoMapper;
 using SADVO.Application.Dtos;
-using SADVO.Domain.Entities;
 using SADVO.Domain.Entities.Administrador;
 
 namespace SADVO.Application.Mappings
@@ -15,6 +14,7 @@ namespace SADVO.Application.Mappings
 
             CreateMap<Ciudadano, CuidadanoDto>().ReverseMap();
             CreateMap<PuestoElectivo, PuestoElectivoDto>().ReverseMap();
+            CreateMap<Eleccion, EleccionDto>().ReverseMap();
         }
     }
 }

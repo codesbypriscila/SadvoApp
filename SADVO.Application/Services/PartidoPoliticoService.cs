@@ -6,39 +6,39 @@ using SADVO.Domain.Interfaces;
 
 namespace SADVO.Application.Services
 {
-    public class CiudadanoService : ICiudadanoService
+    public class PartidoPoliticoService : IPartidoPoliticoService
     {
-        private readonly IGenericRepository<Ciudadano> _repository;
+        private readonly IGenericRepository<PartidoPolitico> _repository;
         private readonly IMapper _mapper;
 
-        public CiudadanoService(IGenericRepository<Ciudadano> repository, IMapper mapper)
+        public PartidoPoliticoService(IGenericRepository<PartidoPolitico> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CuidadanoDto>> GetAllAsync()
+        public async Task<IEnumerable<PartidoPoliticoDto>> GetAllAsync()
         {
             var list = await _repository.GetAllAsync();
-            return _mapper.Map<IEnumerable<CuidadanoDto>>(list);
+            return _mapper.Map<IEnumerable<PartidoPoliticoDto>>(list);
         }
 
-        public async Task<CuidadanoDto?> GetByIdAsync(int id)
+        public async Task<PartidoPoliticoDto?> GetByIdAsync(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
-            return _mapper.Map<CuidadanoDto>(entity);
+            return _mapper.Map<PartidoPoliticoDto>(entity);
         }
 
-        public async Task CreateAsync(CuidadanoDto dto)
+        public async Task CreateAsync(PartidoPoliticoDto dto)
         {
-            var entity = _mapper.Map<Ciudadano>(dto);
+            var entity = _mapper.Map<PartidoPolitico>(dto);
             entity.Activo = true;
             await _repository.AddAsync(entity);
         }
 
-        public Task UpdateAsync(CuidadanoDto dto)
+        public Task UpdateAsync(PartidoPoliticoDto dto)
         {
-            var entity = _mapper.Map<Ciudadano>(dto);
+            var entity = _mapper.Map<PartidoPolitico>(dto);
             _repository.UpdateAsync(entity);
             return Task.CompletedTask;
         }
@@ -62,7 +62,5 @@ namespace SADVO.Application.Services
                 _repository.UpdateAsync(entity);
             }
         }
-        
-        
     }
 }
