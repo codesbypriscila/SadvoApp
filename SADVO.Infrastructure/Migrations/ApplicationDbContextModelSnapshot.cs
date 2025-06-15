@@ -119,7 +119,6 @@ namespace SADVO.Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LogoUrl")

@@ -29,7 +29,7 @@ namespace SADVO.Application.ViewModels
                 Nombre = Nombre,
                 Descripcion = Descripcion ?? string.Empty,
                 Siglas = Siglas,
-                LogoUrl = LogoUrl,
+                LogoUrl = LogoUrl ?? string.Empty,
                 Activo = Activo
             };
 

@@ -1,0 +1,37 @@
+@model SADVO.Application.ViewModels.PartidoPoliticoViewModel
+@{
+    ViewData["Title"] = "Desactivar Partido Político";
+}
+
+<div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Desactivar Partido Político</h2>
+
+    <p class="mb-4 text-gray-700">¿Estás seguro de que deseas desactivar este partido político? Esta acción no eliminará sus datos, solo lo marcará como inactivo.</p>
+
+    <dl class="mb-6 space-y-2">
+        <div>
+            <dt class="text-sm font-medium text-gray-500">Nombre</dt>
+            <dd class="text-lg font-semibold text-gray-900">@Model.Nombre</dd>
+        </div>
+        <div>
+            <dt class="text-sm font-medium text-gray-500">Siglas</dt>
+            <dd class="text-lg font-semibold text-gray-900">@Model.Siglas</dd>
+        </div>
+        <div>
+            <dt class="text-sm font-medium text-gray-500">Descripción</dt>
+            <dd class="text-lg font-semibold text-gray-900">@(string.IsNullOrEmpty(Model.Descripcion) ? "Sin descripción" : Model.Descripcion)</dd>
+        </div>
+        <div>
+            <dt class="text-sm font-medium text-gray-500">Estado actual</dt>
+            <dd class="text-lg font-semibold text-gray-900">
+                @(Model.Activo ? "Activo" : "Inactivo")
+            </dd>
+        </div>
+    </dl>
+
+    <form asp-action="Deactivate" method="post" class="flex justify-end gap-4">
+        <input type="hidden" asp-for="Id" />
+        <a asp-action="Index" class="px-5 py-2 bg-gray-200 rounded-md hover:bg-gray-300">Cancelar</a>
+        <button type="submit" class="px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">Desactivar</button>
+    </form>
+</div>

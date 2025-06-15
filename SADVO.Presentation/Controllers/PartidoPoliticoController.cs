@@ -2,17 +2,23 @@ using Microsoft.AspNetCore.Mvc;
 using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
 
+
 namespace SADVO.Presentation.Controllers
 {
-    public class PartidoPoliticoController : Controller
+    public class PartidosPoliticosController : Controller
     {
         private readonly IPartidoPoliticoService _service;
         private readonly IEleccionService _eleccionService;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public PartidoPoliticoController(IPartidoPoliticoService service, IEleccionService eleccionService)
+        public PartidosPoliticosController(
+            IPartidoPoliticoService service, 
+            IEleccionService eleccionService,
+            IWebHostEnvironment hostEnvironment)
         {
             _service = service;
             _eleccionService = eleccionService;
+            _hostEnvironment = hostEnvironment;
         }
 
         public async Task<IActionResult> Index()
@@ -24,17 +30,41 @@ namespace SADVO.Presentation.Controllers
         public async Task<IActionResult> Create()
         {
             if (await _eleccionService.HayEleccionActivaAsync())
-            return Forbid("No se permite crear un partido político mientras hay una elección activa.");
-            return View();
+                return Forbid("No se permite crear un partido político mientras hay una elección activa.");
+            return View(new PartidoPoliticoViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PartidoPoliticoViewModel model)
+        public async Task<IActionResult> Create(PartidoPoliticoViewModel model, IFormFile logoFile)
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite crear un partido político mientras hay una elección activa.");
 
-            if (!ModelState.IsValid) return View(model);
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+
+            if (logoFile != null && logoFile.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "partidos");
+                Directory.CreateDirectory(uploadsFolder);
+
+                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(logoFile.FileName);
+                var filePath = Path.Combine(uploadsFolder, safeFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await logoFile.CopyToAsync(fileStream);
+                }
+
+                model.LogoUrl = $"/uploads/partidos/{safeFileName}";
+            }
+            else
+            {
+                model.LogoUrl = null; 
+            }
+
             await _service.CreateAsync(model.ToDto());
             return RedirectToAction(nameof(Index));
         }
@@ -45,22 +75,48 @@ namespace SADVO.Presentation.Controllers
                 return Forbid("No se permite editar un partido político mientras hay una elección activa.");
 
             var dto = await _service.GetByIdAsync(id);
-            if (dto == null) return NotFound();
+            if (dto == null) 
+                return NotFound();
+                
             return View(PartidoPoliticoViewModel.FromDto(dto));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(PartidoPoliticoViewModel model)
+        public async Task<IActionResult> Edit(PartidoPoliticoViewModel model, IFormFile logoFile)
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite editar un partido político mientras hay una elección activa.");
 
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var partidoActual = await _service.GetByIdAsync(model.Id);
+            
+            if (logoFile != null && logoFile.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "partidos");
+                Directory.CreateDirectory(uploadsFolder);
+
+                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(logoFile.FileName);
+                var filePath = Path.Combine(uploadsFolder, safeFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await logoFile.CopyToAsync(fileStream);
+                }
+
+                model.LogoUrl = $"/uploads/partidos/{safeFileName}";
+            }
+            else
+            {
+                model.LogoUrl = partidoActual?.LogoUrl;
+            }
+
             await _service.UpdateAsync(model.ToDto());
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Desactivar(int id)
+        public async Task<IActionResult> Deactivate(int id)
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite desactivar un partido político mientras hay una elección activa.");
@@ -69,7 +125,7 @@ namespace SADVO.Presentation.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Activar(int id)
+        public async Task<IActionResult> Activate(int id)
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite activar un partido político mientras hay una elección activa.");

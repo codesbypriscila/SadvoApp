@@ -14,6 +14,7 @@ namespace SADVO.Application.Mappings
 
             CreateMap<Ciudadano, CuidadanoDto>().ReverseMap();
             CreateMap<PuestoElectivo, PuestoElectivoDto>().ReverseMap();
+            CreateMap<PartidoPolitico, PartidoPoliticoDto>().ReverseMap();
             CreateMap<Eleccion, EleccionDto>().ReverseMap();
         }
     }

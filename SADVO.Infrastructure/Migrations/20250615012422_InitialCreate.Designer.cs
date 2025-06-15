@@ -12,7 +12,7 @@ using SADVO.Infrastructure.AppDbContext;
 namespace SADVO.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250614184224_InitialCreate")]
+    [Migration("20250615012422_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -122,7 +122,6 @@ namespace SADVO.Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LogoUrl")
