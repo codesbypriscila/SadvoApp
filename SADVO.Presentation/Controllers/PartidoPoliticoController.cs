@@ -12,7 +12,7 @@ namespace SADVO.Presentation.Controllers
         private readonly IWebHostEnvironment _hostEnvironment;
 
         public PartidosPoliticosController(
-            IPartidoPoliticoService service, 
+            IPartidoPoliticoService service,
             IEleccionService eleccionService,
             IWebHostEnvironment hostEnvironment)
         {
@@ -35,34 +35,32 @@ namespace SADVO.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PartidoPoliticoViewModel model, IFormFile logoFile)
+        public async Task<IActionResult> Create(PartidoPoliticoViewModel model)
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite crear un partido político mientras hay una elección activa.");
 
-
             if (!ModelState.IsValid)
                 return View(model);
 
-
-            if (logoFile != null && logoFile.Length > 0)
+            if (model.LogoFile != null && model.LogoFile.Length > 0)
             {
                 var uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "partidos");
                 Directory.CreateDirectory(uploadsFolder);
 
-                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(logoFile.FileName);
+                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.LogoFile.FileName);
                 var filePath = Path.Combine(uploadsFolder, safeFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    await logoFile.CopyToAsync(fileStream);
+                    await model.LogoFile.CopyToAsync(fileStream);
                 }
 
                 model.LogoUrl = $"/uploads/partidos/{safeFileName}";
             }
             else
             {
-                model.LogoUrl = null; 
+                model.LogoUrl = null;
             }
 
             await _service.CreateAsync(model.ToDto());
@@ -71,18 +69,15 @@ namespace SADVO.Presentation.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            if (await _eleccionService.HayEleccionActivaAsync())
-                return Forbid("No se permite editar un partido político mientras hay una elección activa.");
-
             var dto = await _service.GetByIdAsync(id);
-            if (dto == null) 
+            if (dto == null)
                 return NotFound();
-                
+
             return View(PartidoPoliticoViewModel.FromDto(dto));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(PartidoPoliticoViewModel model, IFormFile logoFile)
+        public async Task<IActionResult> Edit(PartidoPoliticoViewModel model)
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite editar un partido político mientras hay una elección activa.");
@@ -91,18 +86,18 @@ namespace SADVO.Presentation.Controllers
                 return View(model);
 
             var partidoActual = await _service.GetByIdAsync(model.Id);
-            
-            if (logoFile != null && logoFile.Length > 0)
+
+            if (model.LogoFile != null && model.LogoFile.Length > 0)
             {
                 var uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "partidos");
                 Directory.CreateDirectory(uploadsFolder);
 
-                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(logoFile.FileName);
+                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.LogoFile.FileName);
                 var filePath = Path.Combine(uploadsFolder, safeFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    await logoFile.CopyToAsync(fileStream);
+                    await model.LogoFile.CopyToAsync(fileStream);
                 }
 
                 model.LogoUrl = $"/uploads/partidos/{safeFileName}";

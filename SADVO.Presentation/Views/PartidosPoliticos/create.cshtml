@@ -9,31 +9,40 @@
     <form asp-action="Create" method="post" enctype="multipart/form-data" class="space-y-6">
         <div>
             <label asp-for="Nombre" class="block text-sm font-medium text-gray-700">Nombre *</label>
-            <input asp-for="Nombre" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
+            <input asp-for="Nombre"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
             <span asp-validation-for="Nombre" class="text-red-500 text-sm"></span>
         </div>
 
         <div>
             <label asp-for="Siglas" class="block text-sm font-medium text-gray-700">Siglas *</label>
-            <input asp-for="Siglas" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" maxlength="10" />
+            <input asp-for="Siglas"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                maxlength="10" />
             <span asp-validation-for="Siglas" class="text-red-500 text-sm"></span>
         </div>
 
         <div>
             <label asp-for="Descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-            <textarea asp-for="Descripcion" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" rows="3" maxlength="200"></textarea>
+            <textarea asp-for="Descripcion"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                rows="3" maxlength="200"></textarea>
         </div>
 
         <div>
-            <label class="block text-sm font-medium text-gray-700">Logo del Partido</label>
-            <input type="file" name="logoFile" accept="image/*" class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
+            <label asp-for="LogoFile" class="block text-sm font-medium text-gray-700">Logo del Partido</label>
+            <input asp-for="LogoFile" type="file" accept="image/*"
+                class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
         </div>
 
+
         <div class="flex justify-end gap-4 pt-6 border-t border-gray-200">
-            <a asp-action="Index" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm transition-all duration-200">
+            <a asp-action="Index"
+                class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm transition-all duration-200">
                 Volver
             </a>
-            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+            <button type="submit"
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
                 Crear Partido
             </button>
         </div>
@@ -41,5 +50,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

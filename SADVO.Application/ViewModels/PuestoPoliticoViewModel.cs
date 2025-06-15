@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using SADVO.Application.Dtos;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,6 +20,9 @@ namespace SADVO.Application.ViewModels
         public string Siglas { get; set; } = null!;
 
         public string? LogoUrl { get; set; }
+        
+        [DataType(DataType.Upload)]
+        public IFormFile? LogoFile { get; set; }
 
         public bool Activo { get; set; }
 
@@ -31,6 +35,7 @@ namespace SADVO.Application.ViewModels
                 Siglas = Siglas,
                 LogoUrl = LogoUrl ?? string.Empty,
                 Activo = Activo
+                
             };
 
         public static PartidoPoliticoViewModel FromDto(PartidoPoliticoDto dto) =>
@@ -42,6 +47,7 @@ namespace SADVO.Application.ViewModels
                 Siglas = dto.Siglas,
                 LogoUrl = dto.LogoUrl,
                 Activo = dto.Activo
+
             };
     }
 }

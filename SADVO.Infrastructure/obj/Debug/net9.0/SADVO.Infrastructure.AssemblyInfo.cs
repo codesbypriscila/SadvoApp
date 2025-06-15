@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SADVO.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6901bd5cd2ad90f00042977519832ff3b7fbe886")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a17e31f1fcdea370bce46bf66447ce32fa8afc5c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SADVO.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SADVO.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

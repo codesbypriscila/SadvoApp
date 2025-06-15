@@ -36,11 +36,18 @@ namespace SADVO.Application.Services
             await _repository.AddAsync(entity);
         }
 
-        public Task UpdateAsync(PartidoPoliticoDto dto)
+        public async Task UpdateAsync(PartidoPoliticoDto dto)
         {
-            var entity = _mapper.Map<PartidoPolitico>(dto);
+            var entity = await _repository.GetByIdAsync(dto.Id);
+            if (entity == null)
+                throw new InvalidOperationException("No se encontró el partido político.");
+
+            entity.Nombre = dto.Nombre;
+            entity.Siglas = dto.Siglas;
+            entity.Descripcion = dto.Descripcion;
+            entity.LogoUrl = dto.LogoUrl;
+
             _repository.UpdateAsync(entity);
-            return Task.CompletedTask;
         }
 
         public async Task DeleteAsync(int id)
