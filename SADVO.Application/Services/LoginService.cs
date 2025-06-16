@@ -7,7 +7,6 @@ using AutoMapper;
 
 namespace SADVO.Application.Services
 {
-
     public class LoginService : ILoginService
     {
         private readonly ILoginRepository _loginRepository;
@@ -23,15 +22,29 @@ namespace SADVO.Application.Services
         {
             var user = await _loginRepository.GetByEmailAsync(loginViewModel.Email);
 
-            if (user == null || !user.Activo)
+            if (user == null)
+            {
                 return null;
+            }
+
+            if (!user.Activo)
+            {
+                throw new ApplicationException("Usuario inactivo");
+            }
 
             var hashedInput = PasswordHasher.Hash(loginViewModel.Password);
             if (user.PasswordHash != hashedInput)
                 return null;
 
-            return _mapper.Map<UsuarioDto>(user);
+            var dto = _mapper.Map<UsuarioDto>(user);
+            dto.Rol = user.RolId switch
+            {
+                1 => "Administrador",
+                2 => "Dirigente",
+                _ => "Sin Rol"
+            };
+
+            return dto;
         }
     }
-
 }

@@ -23,6 +23,8 @@ builder.Services.AddScoped<ICiudadanoService, CiudadanoService>();
 builder.Services.AddScoped<IEleccionService, EleccionService>();
 builder.Services.AddScoped<IPuestoElectivoService, PuestoElectivoService>();
 builder.Services.AddScoped<IPartidoPoliticoService, PartidoPoliticoService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IRolService, RolService>();
 
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));

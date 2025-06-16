@@ -12,7 +12,7 @@ using SADVO.Infrastructure.AppDbContext;
 namespace SADVO.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250615012422_InitialCreate")]
+    [Migration("20250616011911_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
