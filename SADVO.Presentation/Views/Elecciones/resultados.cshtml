@@ -1,0 +1,42 @@
+@model SADVO.Application.Dtos.ResultadoEleccionDto
+@{
+    ViewData["Title"] = "Resultados de Elección";
+}
+<div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Resultados: @Model.NombreEleccion</h2>
+
+    @foreach (var puesto in Model.Puestos)
+    {
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-orange-600 mb-2">@puesto.NombrePuesto</h3>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Candidato</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Partido</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Votos</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Porcentaje</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach (var candidato in puesto.Candidatos)
+                        {
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">@candidato.NombreCandidato</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@candidato.Partido</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@candidato.Votos</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@candidato.Porcentaje %</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+
+    <div class="flex justify-end">
+        <a asp-action="Index" class="px-5 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition">Volver al listado</a>
+    </div>
+</div>

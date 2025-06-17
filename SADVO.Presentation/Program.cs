@@ -25,6 +25,7 @@ builder.Services.AddScoped<IPuestoElectivoService, PuestoElectivoService>();
 builder.Services.AddScoped<IPartidoPoliticoService, PartidoPoliticoService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IRolService, RolService>();
+builder.Services.AddScoped<IAsignacionDirigenteService, AsignacionDirigenteService>();
 
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
@@ -32,7 +33,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 //sesion
 builder.Services.AddSession(opt =>
 {
-    opt.IdleTimeout = TimeSpan.FromMinutes(5);
+    opt.IdleTimeout = TimeSpan.FromMinutes(10);
     opt.Cookie.HttpOnly = true;
 });
 

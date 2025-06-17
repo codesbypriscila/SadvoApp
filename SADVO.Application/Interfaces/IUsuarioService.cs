@@ -11,5 +11,6 @@ namespace SADVO.Application.Interfaces
         Task ActivateAsync(int id);
         Task DeleteAsync(int id);
         Task<bool> IsUsernameTakenAsync(string username, int? excludeUserId = null);
+        Task<IEnumerable<UsuarioDto>> GetUsuariosDirigentesDisponiblesAsync();
     }
 }

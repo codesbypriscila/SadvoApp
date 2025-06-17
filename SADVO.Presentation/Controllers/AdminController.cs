@@ -12,7 +12,7 @@ public class AdminController : Controller
 
         if (usuario == null)
         {
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index", "Login");
         }
 
         return View(usuario);

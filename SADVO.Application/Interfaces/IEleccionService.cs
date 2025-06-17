@@ -10,5 +10,6 @@ namespace SADVO.Application.Interfaces
         Task CreateAsync(EleccionDto dto);
         Task UpdateAsync(EleccionDto dto);
         Task FinalizarAsync(int id);
+        Task<ResultadoEleccionDto?> ObtenerResultadosAsync(int eleccionId);
     }
 }

@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
-
+using SADVO.Application.Utils;
+using SADVO.Application.Dtos;
 
 namespace SADVO.Presentation.Controllers
 {
@@ -23,6 +24,11 @@ namespace SADVO.Presentation.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var usuario = HttpContext.Session.Get<UsuarioDto>("Usuario");
+            if (usuario == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             var list = await _service.GetAllAsync();
             return View(list);
         }

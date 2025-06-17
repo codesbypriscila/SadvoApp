@@ -7,6 +7,7 @@ namespace SADVO.Domain.Entities.Administrador
         public Usuario Usuario { get; set; } = null!;
         public int PartidoPoliticoId { get; set; }
         public PartidoPolitico PartidoPolitico { get; set; } = null!;
+        public bool Activo { get; set; } 
     }
-
 }
+

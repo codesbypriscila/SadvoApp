@@ -30,6 +30,9 @@ namespace SADVO.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
                     b.Property<int>("PartidoPoliticoId")
                         .HasColumnType("int");
 

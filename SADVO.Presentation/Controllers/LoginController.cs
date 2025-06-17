@@ -17,17 +17,11 @@ namespace SADVO.Presentation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return RedirectToAction("Login");
-        }
-
-        [HttpGet]
-        public IActionResult Login()
-        {
             return View(new LoginViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Index(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -49,7 +43,7 @@ namespace SADVO.Presentation.Controllers
                 {
                     "Administrador" => RedirectToAction("Index", "Admin"),
                     "Dirigente" => RedirectToAction("Index", "Dirigente"),
-                    _ => RedirectToAction("Login")
+                    _ => RedirectToAction("Index")
                 };
             }
             catch (ApplicationException ex) when (ex.Message == "Usuario inactivo")
@@ -66,4 +60,5 @@ namespace SADVO.Presentation.Controllers
             return RedirectToAction("Index", "Home");
         }
     }
+
 }

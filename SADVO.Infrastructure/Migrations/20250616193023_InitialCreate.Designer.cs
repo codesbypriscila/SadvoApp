@@ -12,7 +12,7 @@ using SADVO.Infrastructure.AppDbContext;
 namespace SADVO.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250616011911_InitialCreate")]
+    [Migration("20250616193023_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -32,6 +32,9 @@ namespace SADVO.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PartidoPoliticoId")
                         .HasColumnType("int");

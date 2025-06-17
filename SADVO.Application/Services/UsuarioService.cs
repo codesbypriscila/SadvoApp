@@ -10,23 +10,28 @@ namespace SADVO.Application.Services
     public class UsuarioService : IUsuarioService
     {
         private readonly IGenericRepository<Usuario> _repository;
+        private readonly IGenericRepository<AsignacionDirigente> _asignacionRepository;
         private readonly IMapper _mapper;
         private readonly IRolService _rolService;
 
         public UsuarioService(
-            IGenericRepository<Usuario> repository, 
+            IGenericRepository<Usuario> repository,
             IMapper mapper,
-            IRolService rolService)
+            IRolService rolService,
+            IGenericRepository<AsignacionDirigente> asignacionRepository)
+
         {
             _repository = repository;
             _mapper = mapper;
             _rolService = rolService;
+            _asignacionRepository = asignacionRepository;
         }
 
         public async Task<IEnumerable<UsuarioDto>> GetAllAsync()
         {
             var usuarios = await _repository.GetAllAsync();
-            return usuarios.Select(u => {
+            return usuarios.Select(u =>
+            {
                 var dto = _mapper.Map<UsuarioDto>(u);
                 dto.Rol = GetNombreRol(u.RolId);
                 return dto;
@@ -90,7 +95,7 @@ namespace SADVO.Application.Services
             entity.Username = dto.Username;
             entity.RolId = dto.RolId;
             entity.Activo = dto.Activo;
-            
+
             if (!string.IsNullOrWhiteSpace(newPassword))
                 entity.PasswordHash = PasswordHasher.Hash(newPassword);
 
@@ -124,5 +129,23 @@ namespace SADVO.Application.Services
                 u.Username.ToLower() == username.ToLower() &&
                 (!excludeUserId.HasValue || u.Id != excludeUserId.Value));
         }
+
+        public async Task<IEnumerable<UsuarioDto>> GetUsuariosDirigentesDisponiblesAsync()
+        {
+            var usuarios = await _repository.GetAllAsync();
+            var asignaciones = await _asignacionRepository.GetAllAsync();
+
+            var disponibles = usuarios
+                .Where(u => u.RolId == 2 && u.Activo && !asignaciones.Any(a => a.UsuarioId == u.Id && a.Activo))
+                .Select(u =>
+                {
+                    var dto = _mapper.Map<UsuarioDto>(u);
+                    dto.Rol = GetNombreRol(u.RolId);
+                    return dto;
+                });
+
+            return disponibles;
+        }
+
     }
 }

@@ -15,6 +15,9 @@ namespace SADVO.Application.ViewModels
         public DateTime FechaRealizacion { get; set; }
 
         public bool Activa { get; set; }
+        public bool Finalizada { get; set; }
+        public int CantidadPartidosPoliticos { get; set; }
+        public int CantidadPuestosDisputados { get; set; }
 
         public static EleccionViewModel FromDto(EleccionDto dto)
         {
@@ -23,7 +26,10 @@ namespace SADVO.Application.ViewModels
                 Id = dto.Id,
                 Nombre = dto.Nombre,
                 FechaRealizacion = dto.FechaRealizacion,
-                Activa = dto.Activa
+                Activa = dto.Activa,
+                Finalizada = dto.Finalizada,
+                CantidadPartidosPoliticos = dto.CantidadPartidosPoliticos,
+                CantidadPuestosDisputados = dto.CantidadPuestosDisputados
             };
         }
 
@@ -34,7 +40,10 @@ namespace SADVO.Application.ViewModels
                 Id = this.Id,
                 Nombre = this.Nombre,
                 FechaRealizacion = this.FechaRealizacion,
-                Activa = this.Activa
+                Activa = this.Activa,
+                Finalizada = this.Finalizada,
+                CantidadPartidosPoliticos = this.CantidadPartidosPoliticos,
+                CantidadPuestosDisputados = this.CantidadPuestosDisputados
             };
         }
     }
