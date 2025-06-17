@@ -44,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpZ25hY2lvbkRpcmlnZW50ZXNcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Candidatos/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xjcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Candidatos/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Ciudadanos/create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkYW5vc1xjcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Ciudadanos/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkYW5vc1xpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Dirigente/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyaWdlbnRlXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Elecciones/create.cshtml]

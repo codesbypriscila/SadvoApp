@@ -10,7 +10,6 @@ namespace SADVO.Domain.Entities.Dirigente
         public string Apellido { get; set; } = null!;
         public string? FotoUrl { get; set; }
         public bool Activo { get; set; }
-
         public int PartidoPoliticoId { get; set; }
         public PartidoPolitico PartidoPolitico { get; set; } = null!;
 
