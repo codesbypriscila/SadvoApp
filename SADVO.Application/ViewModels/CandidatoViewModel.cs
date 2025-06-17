@@ -13,7 +13,7 @@ namespace SADVO.Application.ViewModels
         public string Nombre { get; set; } = null!;
 
         [Required(ErrorMessage = "El apellido del candidato es obligatorio.")]
-        [StringLength(15, ErrorMessage = "El apellido no debe exceder los 15 caracteres.")]
+        [StringLength(25, ErrorMessage = "El apellido no debe exceder los 15 caracteres.")]
         public string Apellido { get; set; } = null!;
 
         public string? FotoUrl { get; set; }

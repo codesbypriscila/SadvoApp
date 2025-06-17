@@ -1,0 +1,65 @@
+@model SADVO.Application.ViewModels.CandidatoViewModel
+@{
+    ViewData["Title"] = "Editar Candidato";
+}
+
+<div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Editar Candidato</h2>
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data" class="space-y-6">
+        <input type="hidden" asp-for="Id" />
+
+        <div>
+            <label asp-for="Nombre" class="block text-sm font-medium text-gray-700">Nombre *</label>
+            <input asp-for="Nombre"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+            <span asp-validation-for="Nombre" class="text-red-500 text-sm"></span>
+        </div>
+
+        <div>
+            <label asp-for="Apellido" class="block text-sm font-medium text-gray-700">Apellido *</label>
+            <input asp-for="Apellido"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+            <span asp-validation-for="Apellido" class="text-red-500 text-sm"></span>
+        </div>
+
+        <div>
+            <label asp-for="FotoFile" class="block text-sm font-medium text-gray-700">Foto del Candidato</label>
+            <div class="mt-2 flex items-center space-x-4">
+                @if (!string.IsNullOrEmpty(Model.FotoUrl))
+                {
+                    <div class="h-20 w-20 rounded-lg overflow-hidden border-2 border-gray-200">
+                        <img src="@Model.FotoUrl" alt="Foto actual" class="h-full w-full object-cover" />
+                    </div>
+                }
+                else
+                {
+                    <div class="h-20 w-20 rounded-lg bg-blue-100 flex items-center justify-center border-2 border-dashed border-gray-300">
+                        <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                }
+                <div class="flex-1">
+                    <input asp-for="FotoFile" type="file" accept="image/*"
+                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <p class="text-xs text-gray-500 mt-1">PNG, JPG, GIF hasta 2MB (opcional - dejar vacío para mantener imagen actual)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-end gap-4 pt-6 border-t border-gray-200">
+            <a asp-action="Index" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm transition-all duration-200">
+                Volver
+            </a>
+            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                Guardar Cambios
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+} 

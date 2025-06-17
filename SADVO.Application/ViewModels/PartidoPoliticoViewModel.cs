@@ -9,14 +9,14 @@ namespace SADVO.Application.ViewModels
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El nombre es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El nombre no debe exceder los 100 caracteres.")]
+        [StringLength(15, ErrorMessage = "El nombre no debe exceder los 15 caracteres.")]
         public string Nombre { get; set; } = null!;
 
-        [StringLength(200, ErrorMessage = "La descripción no debe exceder los 200 caracteres.")]
+        [StringLength(100, ErrorMessage = "La descripción no debe exceder los 100 caracteres.")]
         public string? Descripcion { get; set; }
 
         [Required(ErrorMessage = "Las siglas son obligatorias.")]
-        [StringLength(10, ErrorMessage = "Las siglas no deben exceder los 10 caracteres.")]
+        [StringLength(8, ErrorMessage = "Las siglas no deben exceder los 8 caracteres.")]
         public string Siglas { get; set; } = null!;
 
         public string? LogoUrl { get; set; }

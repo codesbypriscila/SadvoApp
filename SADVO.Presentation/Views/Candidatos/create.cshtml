@@ -1,57 +1,45 @@
 @model SADVO.Application.ViewModels.CandidatoViewModel
+
 @{
     ViewData["Title"] = "Crear Candidato";
 }
 
-<div id="create-view" class="hidden min-h-screen bg-gray-50 px-3 sm:px-4 lg:px-8 pt-8">
-    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
-        <div class="flex items-center mb-6">
-            <div
-                class="h-10 w-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900">Nuevo Candidato</h2>
+<div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Nuevo Candidato</h2>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="space-y-6">
+        <div>
+            <label asp-for="Nombre" class="block text-sm font-medium text-gray-700">Nombre *</label>
+            <input asp-for="Nombre"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+            <span asp-validation-for="Nombre" class="text-red-500 text-sm"></span>
         </div>
 
-        <form class="space-y-6" onsubmit="createCandidate(event)">
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Nombre del Candidato *</label>
-                <input type="text" id="create-nombre" required maxlength="15"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ingrese el nombre del candidato" />
-                <p class="text-xs text-gray-500 mt-1">Máximo 15 caracteres</p>
-            </div>
+        <div>
+            <label asp-for="Apellido" class="block text-sm font-medium text-gray-700">Apellido *</label>
+            <input asp-for="Apellido"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+            <span asp-validation-for="Apellido" class="text-red-500 text-sm"></span>
+        </div>
 
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Apellido del Candidato *</label>
-                <input type="text" id="create-apellido" required maxlength="15"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ingrese el apellido del candidato" />
-                <p class="text-xs text-gray-500 mt-1">Máximo 15 caracteres</p>
-            </div>
+        <div>
+            <label asp-for="FotoFile" class="block text-sm font-medium text-gray-700">Foto del Candidato *</label>
+            <input asp-for="FotoFile" type="file" accept="image/*"
+                class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+            <span asp-validation-for="FotoFile" class="text-red-500 text-sm"></span>
+        </div>
 
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Foto del Candidato *</label>
-                <input type="file" id="create-foto" accept="image/*" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
-                <p class="text-xs text-gray-500 mt-1">Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 2MB</p>
-            </div>
-
-            <div class="flex justify-end gap-4 pt-6 border-t border-gray-200">
-                <button type="button" onclick="showIndexView()"
-                    class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm transition-all duration-200">
-                    Volver
-                </button>
-                <button type="submit"
-                    class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
-                    Crear Candidato
-                </button>
-            </div>
-        </form>
-    </div>
+        <div class="flex justify-end gap-4 pt-6 border-t border-gray-200">
+            <a asp-action="Index"
+                class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm transition-all duration-200">
+                Volver
+            </a>
+            <button type="submit"
+                class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                Crear Candidato
+            </button>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

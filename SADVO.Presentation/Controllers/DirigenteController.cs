@@ -1,12 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using SADVO.Application.Dtos;
+using SADVO.Application.Interfaces;
 using SADVO.Application.Utils;
-
-namespace SADVO.Presentation.Controllers;
 
 public class DirigenteController : Controller
 {
-    public IActionResult Index()
+    private readonly IAsignacionDirigenteService _asignacionService;
+
+    public DirigenteController(IAsignacionDirigenteService asignacionService)
+    {
+        _asignacionService = asignacionService;
+    }
+
+    public async Task<IActionResult> Index()
     {
         var usuario = HttpContext.Session.Get<UsuarioDto>("Usuario");
 
@@ -14,6 +20,10 @@ public class DirigenteController : Controller
         {
             return RedirectToAction("Index", "Login");
         }
+
+        var asignaciones = await _asignacionService.GetAllAsync();
+        var asignacionUsuario = asignaciones.FirstOrDefault(a => a.UsuarioId == usuario.Id);
+        ViewBag.PartidoSiglas = asignacionUsuario?.PartidoPoliticoSiglas ?? "Sin asignación";
 
         return View(usuario);
     }

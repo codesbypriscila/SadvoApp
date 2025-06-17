@@ -46,9 +46,20 @@ namespace SADVO.Presentation.Controllers
                     _ => RedirectToAction("Index")
                 };
             }
-            catch (ApplicationException ex) when (ex.Message == "Usuario inactivo")
+            catch (ApplicationException ex) 
             {
-                model.ErrorLogin = "Usuario inactivo";
+                if (ex.Message == "Usuario inactivo")
+                {
+                    model.ErrorLogin = "Usuario inactivo";
+                }
+                else if (ex.Message == "Este dirigente no está asignado a ningún partido político.")
+                {
+                    model.ErrorLogin = "Este dirigente no está asignado a ningún partido político.";
+                }
+                else
+                {
+                    model.ErrorLogin = "Error inesperado al iniciar sesión.";
+                }
                 return View(model);
             }
         }

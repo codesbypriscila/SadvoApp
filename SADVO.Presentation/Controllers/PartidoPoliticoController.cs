@@ -29,6 +29,7 @@ namespace SADVO.Presentation.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
+
             var list = await _service.GetAllAsync();
             return View(list);
         }
@@ -37,6 +38,7 @@ namespace SADVO.Presentation.Controllers
         {
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite crear un partido político mientras hay una elección activa.");
+
             return View(new PartidoPoliticoViewModel());
         }
 
@@ -46,32 +48,41 @@ namespace SADVO.Presentation.Controllers
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite crear un partido político mientras hay una elección activa.");
 
+            model.Siglas = model.Siglas.Trim().ToUpper();
+
+            if (model.LogoFile == null || model.LogoFile.Length == 0)
+            {
+                ModelState.AddModelError("LogoFile", "El logo del partido es obligatorio.");
+            }
+
+            var existentes = await _service.GetAllAsync();
+            if (existentes.Any(p => p.Siglas.ToUpper() == model.Siglas))
+            {
+                ModelState.AddModelError("Siglas", "Ya existe un partido político con esas siglas.");
+            }
+
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.LogoFile != null && model.LogoFile.Length > 0)
+            var uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "partidos");
+            Directory.CreateDirectory(uploadsFolder);
+
+            var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.LogoFile!.FileName);
+            var filePath = Path.Combine(uploadsFolder, safeFileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
-                var uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "partidos");
-                Directory.CreateDirectory(uploadsFolder);
-
-                var safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.LogoFile.FileName);
-                var filePath = Path.Combine(uploadsFolder, safeFileName);
-
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await model.LogoFile.CopyToAsync(fileStream);
-                }
-
-                model.LogoUrl = $"/uploads/partidos/{safeFileName}";
+                await model.LogoFile.CopyToAsync(fileStream);
             }
-            else
-            {
-                model.LogoUrl = null;
-            }
+
+            model.LogoUrl = $"/uploads/partidos/{safeFileName}";
 
             await _service.CreateAsync(model.ToDto());
+
             return RedirectToAction(nameof(Index));
         }
+
+
 
         public async Task<IActionResult> Edit(int id)
         {
@@ -90,6 +101,14 @@ namespace SADVO.Presentation.Controllers
 
             if (!ModelState.IsValid)
                 return View(model);
+
+            model.Siglas = model.Siglas.ToUpper();
+            var existentes = await _service.GetAllAsync();
+            if (existentes.Any(p => p.Siglas.ToUpper() == model.Siglas && p.Id != model.Id))
+            {
+                ModelState.AddModelError("Siglas", "Ya existe otro partido con esas siglas.");
+                return View(model);
+            }
 
             var partidoActual = await _service.GetByIdAsync(model.Id);
 

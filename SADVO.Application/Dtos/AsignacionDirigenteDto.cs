@@ -12,12 +12,4 @@ namespace SADVO.Application.Dtos
         public bool Activo { get; set; }
     }
 
-    public class AsignacionDirigenteCreateDto
-    {
-        [Required(ErrorMessage = "El ID de usuario es requerido")]
-        public int UsuarioId { get; set; }
-        
-        [Required(ErrorMessage = "El ID de partido político es requerido")]
-        public int PartidoPoliticoId { get; set; }
-    }
 }

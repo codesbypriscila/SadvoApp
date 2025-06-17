@@ -3,6 +3,7 @@ using SADVO.Application.Interfaces;
 using SADVO.Application.ViewModels;
 using SADVO.Application.Dtos;
 using SADVO.Application.Utils;
+using SADVO.Application.Services;
 
 namespace SADVO.Presentation.Controllers
 {
@@ -10,31 +11,45 @@ namespace SADVO.Presentation.Controllers
     {
         private readonly ICandidatoService _service;
         private readonly IEleccionService _eleccionService;
+        private readonly IAsignacionDirigenteService _asignacionService;
         private readonly IWebHostEnvironment _hostEnvironment;
 
-        public CandidatosController(ICandidatoService service, IEleccionService eleccionService, IWebHostEnvironment hostEnvironment)
+        public CandidatosController(ICandidatoService service, IAsignacionDirigenteService asignacionService, IEleccionService eleccionService, IWebHostEnvironment hostEnvironment)
         {
             _service = service;
             _eleccionService = eleccionService;
+            _asignacionService = asignacionService;
             _hostEnvironment = hostEnvironment;
         }
 
         public async Task<IActionResult> Index()
         {
-            var usuario = HttpContext.Session.Get<CandidatoDto>("Usuario");
+            var usuario = HttpContext.Session.Get<UsuarioDto>("Usuario");
             if (usuario == null)
             {
                 return RedirectToAction("Index", "Login");
             }
-            var list = await _service.GetAllAsync();
-            return View(list);
+
+            var asignaciones = await _asignacionService.GetAllAsync();
+            var asignacion = asignaciones.FirstOrDefault(a => a.UsuarioId == usuario.Id);
+
+            if (asignacion == null)
+            {
+                TempData["ErrorMessage"] = "No tienes un partido asignado. Contacta al administrador.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            var candidatos = await _service.GetAllAsync();
+            var filtrados = candidatos
+                .Where(c => c.PartidoPoliticoId == asignacion.PartidoPoliticoId)
+                .ToList();
+
+            return View(filtrados);
         }
 
-        public async Task<IActionResult> Create()
+        [HttpGet]
+        public IActionResult Create()
         {
-            if (await _eleccionService.HayEleccionActivaAsync())
-                return Forbid("No se puede crear candidato durante una elección activa.");
-            
             return View(new CandidatoViewModel());
         }
 
@@ -44,33 +59,51 @@ namespace SADVO.Presentation.Controllers
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid();
 
+            if (model.FotoFile == null)
+            {
+                ModelState.AddModelError("FotoFile", "La foto del candidato es obligatoria.");
+                return View(model);
+            }
+
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.FotoFile != null)
+            var usuario = HttpContext.Session.Get<UsuarioDto>("Usuario");
+            var asignaciones = await _asignacionService.GetAllAsync();
+            var asignacion = asignaciones.FirstOrDefault(a => a.UsuarioId == usuario!.Id);
+
+            if (asignacion == null)
             {
-                var folder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "candidatos");
-                Directory.CreateDirectory(folder);
-
-                var filename = Guid.NewGuid() + Path.GetExtension(model.FotoFile.FileName);
-                var path = Path.Combine(folder, filename);
-
-                using (var fs = new FileStream(path, FileMode.Create))
-                {
-                    await model.FotoFile.CopyToAsync(fs);
-                }
-
-                model.FotoUrl = $"/uploads/candidatos/{filename}";
+                TempData["ErrorMessage"] = "No tienes un partido asignado. Contacta al administrador.";
+                return RedirectToAction("Index");
             }
+
+            model.PartidoPoliticoId = asignacion.PartidoPoliticoId;
+
+            var folder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "candidatos");
+            Directory.CreateDirectory(folder);
+
+            var filename = Guid.NewGuid() + Path.GetExtension(model.FotoFile.FileName);
+            var path = Path.Combine(folder, filename);
+
+            using (var fs = new FileStream(path, FileMode.Create))
+            {
+                await model.FotoFile.CopyToAsync(fs);
+            }
+
+            model.FotoUrl = $"/uploads/candidatos/{filename}";
 
             await _service.CreateAsync(model.ToDto());
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var dto = await _service.GetByIdAsync(id);
-            if (dto == null) return NotFound();
+            if (dto == null)
+                return NotFound();
+
             return View(CandidatoViewModel.FromDto(dto));
         }
 
@@ -83,7 +116,9 @@ namespace SADVO.Presentation.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.FotoFile != null)
+            var actual = await _service.GetByIdAsync(model.Id);
+
+            if (model.FotoFile != null && model.FotoFile.Length > 0)
             {
                 var folder = Path.Combine(_hostEnvironment.WebRootPath, "uploads", "candidatos");
                 Directory.CreateDirectory(folder);
@@ -97,6 +132,10 @@ namespace SADVO.Presentation.Controllers
                 }
 
                 model.FotoUrl = $"/uploads/candidatos/{filename}";
+            }
+            else
+            {
+                model.FotoUrl = actual?.FotoUrl;
             }
 
             await _service.UpdateAsync(model.ToDto());
