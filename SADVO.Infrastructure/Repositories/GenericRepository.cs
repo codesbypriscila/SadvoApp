@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using SADVO.Domain.Interfaces;
 using SADVO.Infrastructure.AppDbContext;
+using SADVO.Domain.Entities.Administrador;
 
 namespace SADVO.Infrastructure.Repositories
 {
@@ -30,9 +31,9 @@ namespace SADVO.Infrastructure.Repositories
             IQueryable<Entity> query = _dbSet;
 
             if (include != null)
-                query = include(query); 
+                query = include(query);
 
-            query = query.Where(predicate); 
+            query = query.Where(predicate);
 
             return await query.ToListAsync();
         }
@@ -64,5 +65,16 @@ namespace SADVO.Infrastructure.Repositories
         {
             return await _dbSet.AnyAsync(predicate);
         }
+
+        public async Task<IEnumerable<Eleccion>> GetAllIncludingAsync(params Expression<Func<Eleccion, object>>[] includes)
+        {
+            IQueryable<Eleccion> query = _context.Set<Eleccion>();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return await query.ToListAsync();
+        }
+
     }
 }

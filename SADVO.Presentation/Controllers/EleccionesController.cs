@@ -51,7 +51,7 @@ namespace SADVO.Presentation.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", ex.Message);
+                ModelState.AddModelError("", ex.Message); 
                 return View(model);
             }
         }
@@ -59,7 +59,7 @@ namespace SADVO.Presentation.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var dto = await _service.GetByIdAsync(id);
-            if (dto == null) return NotFound();
+            if (dto == null || dto.Finalizada) return NotFound();
             return View(EleccionViewModel.FromDto(dto));
         }
 

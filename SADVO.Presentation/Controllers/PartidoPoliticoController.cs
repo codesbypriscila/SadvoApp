@@ -48,17 +48,19 @@ namespace SADVO.Presentation.Controllers
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite crear un partido político mientras hay una elección activa.");
 
-            model.Siglas = model.Siglas.Trim().ToUpper();
-
             if (model.LogoFile == null || model.LogoFile.Length == 0)
             {
                 ModelState.AddModelError("LogoFile", "El logo del partido es obligatorio.");
             }
 
-            var existentes = await _service.GetAllAsync();
-            if (existentes.Any(p => p.Siglas.ToUpper() == model.Siglas))
+            if (!string.IsNullOrWhiteSpace(model.Siglas))
             {
-                ModelState.AddModelError("Siglas", "Ya existe un partido político con esas siglas.");
+                model.Siglas = model.Siglas.Trim().ToUpper();
+                var existentes = await _service.GetAllAsync();
+                if (existentes.Any(p => p.Siglas.ToUpper() == model.Siglas))
+                {
+                    ModelState.AddModelError("Siglas", "Ya existe un partido político con esas siglas.");
+                }
             }
 
             if (!ModelState.IsValid)
@@ -76,6 +78,7 @@ namespace SADVO.Presentation.Controllers
             }
 
             model.LogoUrl = $"/uploads/partidos/{safeFileName}";
+            model.Nombre = model.Nombre.Trim();
 
             await _service.CreateAsync(model.ToDto());
 

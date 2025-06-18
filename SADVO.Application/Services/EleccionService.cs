@@ -49,7 +49,8 @@ namespace SADVO.Application.Services
 
         public async Task<IEnumerable<EleccionDto>> GetAllAsync()
         {
-            var list = await _eleccionRepo.GetAllAsync();
+            var list = await _eleccionRepo.GetAllIncludingAsync(e => e.Candidatos);
+
             return list
                 .OrderByDescending(e => e.Activa)
                 .ThenByDescending(e => e.Fecha)
@@ -62,6 +63,7 @@ namespace SADVO.Application.Services
                 });
         }
 
+
         public async Task<EleccionDto?> GetByIdAsync(int id)
         {
             var entity = await _eleccionRepo.GetByIdAsync(id);
@@ -70,28 +72,62 @@ namespace SADVO.Application.Services
 
         public async Task CreateAsync(EleccionDto dto)
         {
-            var puestos = await _puestoRepo.FindAsync(p => p.Activo);
+            // Obtener puestos activos
+            var puestos = (await _puestoRepo.FindAsync(p => p.Activo)).ToList();
             if (!puestos.Any())
-                throw new Exception("No hay puestos electivos activos.");
+                throw new Exception("Debe haber al menos un puesto electivo activo.");
 
-            var partidos = await _partidoRepo.FindAsync(p => p.Activo);
-            if (partidos.Count() < 2)
+            // Obtener partidos activos
+            var partidos = (await _partidoRepo.FindAsync(p => p.Activo)).ToList();
+            if (partidos.Count < 2)
                 throw new Exception("No hay suficientes partidos políticos para realizar una elección.");
+
+            var entity = _mapper.Map<Eleccion>(dto);
+            entity.Activa = true;
+            entity.Finalizada = false;
+            entity.Candidatos = new List<CandidatoPuesto>();
 
             foreach (var partido in partidos)
             {
-                var candidatos = await _candidatoRepo.FindAsync(c => c.PartidoPoliticoId == partido.Id);
-                var faltantes = puestos.Where(p => !candidatos.Any(c => c.PuestoElectivoId == p.Id)).ToList();
-                if (faltantes.Any())
+                var puestosSinCandidato = new List<string>();
+
+                foreach (var puesto in puestos)
                 {
-                    var nombres = string.Join(", ", faltantes.Select(p => p.Nombre));
+                    // Buscar si existe un candidato de este partido para este puesto
+                    var candidatosPuestos = await _candidatoRepo.FindAsync(cp =>
+                        cp.PartidoPoliticoId == partido.Id &&
+                        cp.PuestoElectivoId == puesto.Id &&
+                        cp.Candidato.Activo);
+
+                    var candidatoPuesto = candidatosPuestos.FirstOrDefault();
+
+                    if (candidatoPuesto == null)
+                    {
+                        puestosSinCandidato.Add(puesto.Nombre);
+                    }
+                    else
+                    {
+                        entity.Candidatos.Add(new CandidatoPuesto
+                        {
+                            Eleccion = entity,
+                            CandidatoId = candidatoPuesto.CandidatoId,
+                            PuestoElectivoId = puesto.Id,
+                            PartidoPoliticoId = partido.Id
+                        });
+                    }
+                }
+
+                if (puestosSinCandidato.Any())
+                {
+                    var nombres = string.Join(", ", puestosSinCandidato);
                     throw new Exception($"El partido político {partido.Nombre} ({partido.Siglas}) no tiene candidatos para los puestos: {nombres}");
                 }
             }
 
-            var entity = _mapper.Map<Eleccion>(dto);
             await _eleccionRepo.AddAsync(entity);
         }
+
+
 
         public Task UpdateAsync(EleccionDto dto)
         {
@@ -144,7 +180,7 @@ namespace SADVO.Application.Services
                     resumen.Candidatos.Add(new ResumenCandidatoDto
                     {
                         NombreCandidato = $"{candidato.Nombre} {candidato.Apellido}",
-                        Partido = candidato.PartidoPolitico.Nombre,
+                        Partido = candidato.PartidoPolitico.Nombre ?? "Desconocido",
                         Votos = votosCandidato,
                         Porcentaje = porcentaje
                     });

@@ -5,6 +5,13 @@
 <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-10">
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Nueva Elección</h2>
 
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="mb-4 text-red-600 font-semibold">
+            @Html.ValidationSummary(false, "", new { @class = "text-red-500" })
+        </div>
+    }
+
     <form asp-action="Create" method="post" class="space-y-6">
         <div>
             <label asp-for="Nombre" class="block text-sm font-medium text-gray-700">Nombre de la Elección</label>
@@ -24,6 +31,7 @@
         </div>
     </form>
 </div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

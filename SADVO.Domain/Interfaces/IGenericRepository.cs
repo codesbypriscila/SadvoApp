@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using SADVO.Domain.Entities.Administrador;
 
 namespace SADVO.Domain.Interfaces
 {
@@ -11,5 +12,7 @@ namespace SADVO.Domain.Interfaces
         void UpdateAsync(Entity entity);
         void RemoveAsync(Entity entity);
         Task<bool> ExistsAsync(Expression<Func<Entity, bool>> predicate);
+        Task<IEnumerable<Eleccion>> GetAllIncludingAsync(params Expression<Func<Eleccion, object>>[] includes);
+
     }
 }

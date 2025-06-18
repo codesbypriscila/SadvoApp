@@ -79,6 +79,21 @@ namespace SADVO.Presentation.Controllers
             if (await _eleccionService.HayEleccionActivaAsync())
                 return Forbid("No se permite asignar candidatos mientras hay una elección activa.");
 
+            var usuario = HttpContext.Session.Get<UsuarioDto>("Usuario");
+            if (usuario == null)
+                return RedirectToAction("Index", "Login");
+
+            var asignacion = (await _asignacionService.GetAllAsync())
+                .FirstOrDefault(x => x.UsuarioId == usuario.Id);
+
+            if (asignacion == null)
+            {
+                TempData["ErrorMessage"] = "No tienes un partido asignado.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            model.PartidoPoliticoId = asignacion.PartidoPoliticoId; // ← Esto es CLAVE
+
             if (!ModelState.IsValid)
             {
                 model.CandidatosDisponibles = await _service.ObtenerCandidatosDisponiblesAsync(model.PartidoPoliticoId, model.PuestoElectivoId);
@@ -99,6 +114,7 @@ namespace SADVO.Presentation.Controllers
                 return View(model);
             }
         }
+
 
         public async Task<IActionResult> Delete(int id)
         {

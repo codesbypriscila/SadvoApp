@@ -9,7 +9,7 @@ namespace SADVO.Application.ViewModels
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El nombre es obligatorio.")]
-        [StringLength(15, ErrorMessage = "El nombre no debe exceder los 15 caracteres.")]
+        [StringLength(50, ErrorMessage = "El nombre no debe exceder los 50 caracteres.")]
         public string Nombre { get; set; } = null!;
 
         [StringLength(100, ErrorMessage = "La descripción no debe exceder los 100 caracteres.")]
