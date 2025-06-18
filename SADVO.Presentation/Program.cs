@@ -37,6 +37,8 @@ builder.Services.AddScoped<IAsignacionDirigenteService, AsignacionDirigenteServi
 builder.Services.AddScoped<ICandidatoService, CandidatoService>();
 builder.Services.AddScoped<IAlianzaPoliticaService, AlianzaPoliticaService>();
 builder.Services.AddScoped<IDirigenteService, DirigenteService>();
+builder.Services.AddScoped<ICandidatoPuestoService, CandidatoPuestoService>();
+
 
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));

@@ -18,6 +18,7 @@ namespace SADVO.Application.Mappings
             CreateMap<PartidoPolitico, PartidoPoliticoDto>().ReverseMap();
             CreateMap<Eleccion, EleccionDto>().ReverseMap();
             CreateMap<Candidato, CandidatoDto>().ReverseMap();
+            CreateMap<CandidatoPuestoDto, CandidatoPuesto>().ReverseMap();
 
             CreateMap<AlianzaPolitica, AlianzaPoliticaDto>()
                 .ForMember(dest => dest.PartidoSolicitanteNombre, opt => opt.MapFrom(src => src.PartidoSolicitante.Nombre))
