@@ -6,10 +6,12 @@ using SADVO.Application.Utils;
 public class DirigenteController : Controller
 {
     private readonly IAsignacionDirigenteService _asignacionService;
+    private readonly ICandidatoService _candidatoService;
 
-    public DirigenteController(IAsignacionDirigenteService asignacionService)
+    public DirigenteController(IAsignacionDirigenteService asignacionService, ICandidatoService candidatoService)
     {
         _asignacionService = asignacionService;
+        _candidatoService = candidatoService;
     }
 
     public async Task<IActionResult> Index()
