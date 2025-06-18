@@ -8,10 +8,12 @@ namespace SADVO.Presentation.Controllers
     public class LoginController : Controller
     {
         private readonly ILoginService _loginService;
+        private readonly IDirigenteService _dirigenteService;
 
-        public LoginController(ILoginService loginService)
+        public LoginController(ILoginService loginService, IDirigenteService dirigenteService)
         {
             _loginService = loginService;
+            _dirigenteService = dirigenteService;
         }
 
         [HttpGet]
@@ -37,6 +39,19 @@ namespace SADVO.Presentation.Controllers
                     return View(model);
                 }
 
+                if (usuario.Rol == "Dirigente")
+                {
+                    var dirigente = await _dirigenteService.ObtenerDirigentePorUsuarioIdAsync(usuario.Id);
+                    if (dirigente == null || dirigente.PartidoPoliticoId == null)
+                    {
+                        model.ErrorLogin = "Este dirigente no está asignado a ningún partido político.";
+                        return View(model);
+                    }
+
+                    usuario.PartidoPoliticoId = dirigente.PartidoPoliticoId;
+                    HttpContext.Session.SetInt32("PartidoId", dirigente.PartidoPoliticoId.Value);
+                }
+
                 HttpContext.Session.Set("Usuario", usuario);
 
                 return usuario.Rol switch
@@ -46,20 +61,9 @@ namespace SADVO.Presentation.Controllers
                     _ => RedirectToAction("Index")
                 };
             }
-            catch (ApplicationException ex) 
+            catch (ApplicationException ex)
             {
-                if (ex.Message == "Usuario inactivo")
-                {
-                    model.ErrorLogin = "Usuario inactivo";
-                }
-                else if (ex.Message == "Este dirigente no está asignado a ningún partido político.")
-                {
-                    model.ErrorLogin = "Este dirigente no está asignado a ningún partido político.";
-                }
-                else
-                {
-                    model.ErrorLogin = "Error inesperado al iniciar sesión.";
-                }
+                model.ErrorLogin = ex.Message;
                 return View(model);
             }
         }
@@ -71,5 +75,4 @@ namespace SADVO.Presentation.Controllers
             return RedirectToAction("Index", "Home");
         }
     }
-
 }

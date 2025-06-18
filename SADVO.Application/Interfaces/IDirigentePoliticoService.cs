@@ -13,6 +13,7 @@ namespace SADVO.Application.Interfaces
         Task<bool> ExisteAsignacionActivaAsync(int usuarioId);
         Task<bool> UsuarioEsDirigenteAsync(int usuarioId);
         Task<bool> HayEleccionActivaAsync();
+
     }
 
 }

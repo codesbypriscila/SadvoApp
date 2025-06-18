@@ -6,7 +6,7 @@ namespace SADVO.Domain.Interfaces
     {
         Task<Entity?> GetByIdAsync(int id);
         Task<IEnumerable<Entity>> GetAllAsync();
-        Task<IEnumerable<Entity>> FindAsync(Expression<Func<Entity, bool>> predicate);
+        Task<IEnumerable<Entity>> FindAsync(Expression<Func<Entity, bool>> predicate, Func<IQueryable<Entity>, IQueryable<Entity>>? include = null);
         Task AddAsync(Entity entity);
         void UpdateAsync(Entity entity);
         void RemoveAsync(Entity entity);

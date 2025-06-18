@@ -1,0 +1,25 @@
+@model SADVO.Application.ViewModels.AlianzaPoliticaViewModel
+@{
+    ViewData["Title"] = "Confirmar Rechazo de Alianza";
+}
+
+<div class="max-w-xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mt-16 text-center">
+    <h2 class="text-xl font-semibold text-gray-900 mb-4">
+        ¿Está seguro que desea rechazar la alianza con el partido
+        <span class="text-red-600 font-bold">@Model.PartidoReceptorNombre (@Model.PartidoReceptorSiglas)</span>?
+    </h2>
+
+    <form asp-action="ConfirmarRechazar" method="post">
+        <input type="hidden" asp-for="IdSolicitud" />
+        <div class="flex justify-center gap-4 pt-6 border-t border-gray-200">
+            <a asp-action="Index"
+                class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg shadow-sm transition-all duration-200">
+                Cancelar
+            </a>
+            <button type="submit"
+                class="px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                Rechazar
+            </button>
+        </div>
+    </form>
+</div>

@@ -32,6 +32,26 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5caW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/AlianzasPoliticas/ConfirmarAceptar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxpYW56YXNQb2xpdGljYXNcQ29uZmlybWFyQWNlcHRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/AlianzasPoliticas/ConfirmarEliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxpYW56YXNQb2xpdGljYXNcQ29uZmlybWFyRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/AlianzasPoliticas/ConfirmarRechazar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxpYW56YXNQb2xpdGljYXNcQ29uZmlybWFyUmVjaGF6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/AlianzasPoliticas/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxpYW56YXNQb2xpdGljYXNcY3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/AlianzasPoliticas/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxpYW56YXNQb2xpdGljYXNcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/AsignacionDirigentes/create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpZ25hY2lvbkRpcmlnZW50ZXNcY3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

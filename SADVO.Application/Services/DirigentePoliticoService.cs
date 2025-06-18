@@ -1,3 +1,4 @@
+using AutoMapper;
 using SADVO.Application.Dtos;
 using SADVO.Application.Interfaces;
 using SADVO.Domain.Entities.Administrador;
@@ -138,5 +139,6 @@ namespace SADVO.Application.Services
         {
             return await _eleccionService.HayEleccionActivaAsync();
         }
+
     }
 }

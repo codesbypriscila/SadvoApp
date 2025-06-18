@@ -25,6 +25,17 @@ namespace SADVO.Infrastructure.Repositories
         {
             return await _dbSet.ToListAsync();
         }
+        public async Task<IEnumerable<Entity>> FindAsync(Expression<Func<Entity, bool>> predicate, Func<IQueryable<Entity>, IQueryable<Entity>>? include = null)
+        {
+            IQueryable<Entity> query = _dbSet;
+
+            if (include != null)
+                query = include(query); 
+
+            query = query.Where(predicate); 
+
+            return await query.ToListAsync();
+        }
 
         public async Task<IEnumerable<Entity>> FindAsync(Expression<Func<Entity, bool>> predicate)
         {

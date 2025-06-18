@@ -37,8 +37,15 @@ namespace SADVO.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> HayEleccionActivaAsync() =>
-            await _eleccionRepo.ExistsAsync(e => e.Activa);
+        public async Task<bool> HayEleccionActivaAsync()
+        {
+            var hoy = DateTime.Today;
+            return await _eleccionRepo.ExistsAsync(e =>
+                e.Activa &&
+                e.Fecha.Date == hoy &&
+                !e.Finalizada
+            );
+        }
 
         public async Task<IEnumerable<EleccionDto>> GetAllAsync()
         {

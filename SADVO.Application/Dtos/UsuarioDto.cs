@@ -10,5 +10,7 @@ namespace SADVO.Application.Dtos
         public int RolId { get; set; }
         public string Rol { get; set; } = null!;
         public bool Activo { get; set; }
+        public int? PartidoPoliticoId { get; set; } 
+
     }
 }
