@@ -61,8 +61,7 @@ namespace SADVO.Application.Services
                 entity.Activo = true;
                 _repository.UpdateAsync(entity);
             }
-        }
-        
+        }        
         
     }
 }

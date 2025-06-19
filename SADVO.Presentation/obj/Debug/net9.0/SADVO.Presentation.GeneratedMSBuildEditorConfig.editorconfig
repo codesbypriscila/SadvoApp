@@ -128,8 +128,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25lc1xSZXN1bHRhZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Home/Gracias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHcmFjaWFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Home/SeleccionarCandidatos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWxlY2Npb25hckNhbmRpZGF0b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Home/ValidarIdentidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWYWxpZGFySWRlbnRpZGFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/prisc/OneDrive/Desktop/C-5/Programacion III/SadvoApp/SADVO.Presentation/Views/Login/Index.cshtml]

@@ -96,6 +96,10 @@
             "System.Text.Json": {
               "target": "Package",
               "version": "[9.0.6, )"
+            },
+            "Tesseract": {
+              "target": "Package",
+              "version": "[4.1.1, )"
             }
           },
           "imports": [
@@ -414,6 +418,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

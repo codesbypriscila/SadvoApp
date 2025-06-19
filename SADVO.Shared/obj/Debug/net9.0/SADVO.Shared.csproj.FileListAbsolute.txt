@@ -1,6 +1,7 @@
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\bin\Debug\net9.0\SADVO.Shared.deps.json
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\bin\Debug\net9.0\SADVO.Shared.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\bin\Debug\net9.0\SADVO.Shared.pdb
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.csproj.AssemblyReference.cache
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.AssemblyInfoInputs.cache
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Shared\obj\Debug\net9.0\SADVO.Shared.AssemblyInfo.cs

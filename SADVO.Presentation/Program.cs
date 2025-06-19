@@ -6,6 +6,8 @@ using SADVO.Application.Services;
 using SADVO.Domain.Interfaces;
 using SADVO.Infrastructure.AppDbContext;
 using SADVO.Infrastructure.Repositories;
+using SADVO.Shared.Interfaces;
+using SADVO.Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +40,8 @@ builder.Services.AddScoped<ICandidatoService, CandidatoService>();
 builder.Services.AddScoped<IAlianzaPoliticaService, AlianzaPoliticaService>();
 builder.Services.AddScoped<IDirigenteService, DirigenteService>();
 builder.Services.AddScoped<ICandidatoPuestoService, CandidatoPuestoService>();
+builder.Services.AddScoped<IServicioCorreo, ServicioCorreo>();
+builder.Services.AddScoped<IVotoService, VotoService>();
 
 
 

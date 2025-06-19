@@ -1,3 +1,8 @@
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\tessdata\spa.traineddata
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\x86\leptonica-1.80.0.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\x86\tesseract41.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\x64\leptonica-1.80.0.dll
+C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\x64\tesseract41.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Application.deps.json
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Application.dll
 C:\Users\prisc\OneDrive\Desktop\C-5\Programacion III\SadvoApp\SADVO.Application\bin\Debug\net9.0\SADVO.Application.pdb
