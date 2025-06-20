@@ -13,6 +13,8 @@ namespace SADVO.Domain.Interfaces
         void RemoveAsync(Entity entity);
         Task<bool> ExistsAsync(Expression<Func<Entity, bool>> predicate);
         Task<IEnumerable<Eleccion>> GetAllIncludingAsync(params Expression<Func<Eleccion, object>>[] includes);
+        Task<Entity?> GetFirstOrDefaultAsync(Expression<Func<Entity, bool>> predicate, Func<IQueryable<Entity>, IQueryable<Entity>>? include = null);
+
 
     }
 }

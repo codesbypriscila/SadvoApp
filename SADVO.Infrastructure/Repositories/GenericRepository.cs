@@ -76,5 +76,16 @@ namespace SADVO.Infrastructure.Repositories
             return await query.ToListAsync();
         }
 
+        public async Task<Entity?> GetFirstOrDefaultAsync(Expression<Func<Entity, bool>> predicate, Func<IQueryable<Entity>, IQueryable<Entity>>? include = null)
+        {
+            IQueryable<Entity> query = _dbSet;
+
+            if (include != null)
+                query = include(query);
+
+            return await query.FirstOrDefaultAsync(predicate);
+        }
+
+
     }
 }

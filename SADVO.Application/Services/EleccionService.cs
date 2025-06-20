@@ -5,7 +5,7 @@ using SADVO.Domain.Entities.Administrador;
 using SADVO.Domain.Entities.Dirigente;
 using SADVO.Domain.Entities.Elector;
 using SADVO.Domain.Interfaces;
-using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace SADVO.Application.Services
 {
@@ -57,11 +57,12 @@ namespace SADVO.Application.Services
                 .Select(e =>
                 {
                     var dto = _mapper.Map<EleccionDto>(e);
-                    dto.CantidadPartidosPoliticos = e.Candidatos.Select(c => c.PartidoPoliticoId).Distinct().Count();
-                    dto.CantidadPuestosDisputados = e.Candidatos.Select(c => c.PuestoElectivoId).Distinct().Count();
+                    dto.CantidadPartidosPoliticos = e.Candidatos?.Select(c => c.PartidoPoliticoId).Distinct().Count() ?? 0;
+                    dto.CantidadPuestosDisputados = e.Candidatos?.Select(c => c.PuestoElectivoId).Distinct().Count() ?? 0;
                     return dto;
                 });
         }
+
 
 
         public async Task<EleccionDto?> GetByIdAsync(int id)
@@ -72,12 +73,10 @@ namespace SADVO.Application.Services
 
         public async Task CreateAsync(EleccionDto dto)
         {
-            // Obtener puestos activos
             var puestos = (await _puestoRepo.FindAsync(p => p.Activo)).ToList();
             if (!puestos.Any())
                 throw new Exception("Debe haber al menos un puesto electivo activo.");
 
-            // Obtener partidos activos
             var partidos = (await _partidoRepo.FindAsync(p => p.Activo)).ToList();
             if (partidos.Count < 2)
                 throw new Exception("No hay suficientes partidos políticos para realizar una elección.");
@@ -93,7 +92,6 @@ namespace SADVO.Application.Services
 
                 foreach (var puesto in puestos)
                 {
-                    // Buscar si existe un candidato de este partido para este puesto
                     var candidatosPuestos = await _candidatoRepo.FindAsync(cp =>
                         cp.PartidoPoliticoId == partido.Id &&
                         cp.PuestoElectivoId == puesto.Id &&
@@ -171,7 +169,12 @@ namespace SADVO.Application.Services
 
                 foreach (var grupoCandidato in candidatosAgrupados)
                 {
-                    var candidato = await _candidatoRepoGeneric.GetByIdAsync(grupoCandidato.Key);
+                    var candidato = await _candidatoRepoGeneric
+                        .GetFirstOrDefaultAsync(
+                            c => c.Id == grupoCandidato.Key,
+                            include: q => q.Include(c => c.PartidoPolitico)
+                        );
+
                     if (candidato == null) continue;
 
                     var votosCandidato = grupoCandidato.Count();
@@ -180,7 +183,7 @@ namespace SADVO.Application.Services
                     resumen.Candidatos.Add(new ResumenCandidatoDto
                     {
                         NombreCandidato = $"{candidato.Nombre} {candidato.Apellido}",
-                        Partido = candidato.PartidoPolitico.Nombre ?? "Desconocido",
+                        Partido = candidato.PartidoPolitico?.Nombre ?? "Desconocido",
                         Votos = votosCandidato,
                         Porcentaje = porcentaje
                     });
@@ -191,5 +194,6 @@ namespace SADVO.Application.Services
 
             return resultado;
         }
+
     }
 }
